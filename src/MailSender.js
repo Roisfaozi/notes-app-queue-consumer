@@ -1,5 +1,5 @@
-const nodemailer = require('nodemailer');
- 
+const nodemailer = require('nodemailer')
+
 class MailSender {
   constructor() {
     this._transporter = nodemailer.createTransport({
@@ -12,9 +12,8 @@ class MailSender {
       },
     })
   }
-
-  sendEmail (targetEmail, content) {
-    const message={
+  sendEmail(targetEmail, content) {
+    const message = {
       from: 'Notes Apps',
       to: targetEmail,
       subject: 'Ekspor Catatan',
@@ -23,11 +22,12 @@ class MailSender {
         {
           filename: 'notes.json',
           content,
-        }
-      ]
+        },
+      ],
     }
-    return this._transporter.sendMail(message);
+
+    return this._transporter.sendMail(message)
   }
 }
 
-module.exports = MailSender;
+module.exports = MailSender
